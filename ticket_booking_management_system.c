@@ -2,9 +2,8 @@
 #include <string.h>
 #include <time.h>
 
-
-int option;
-char user_name[20], password[20];
+int option; //global variables
+char user_name[20], password[20]; //global variables
 void getCurrentTime();
 void login();
 void createAccount();
@@ -20,16 +19,16 @@ int main(){
     printf("\t\t\t\t\t   WELCOME TO ONLINE TICKET BOOKING SYSTEM\n");
     printf("\t\t\t\t------------------------------------------------------------\n\n\n\n\n");
 
-    getCurrentTime();
+    getCurrentTime(); //gets the current time
     printf("1. SignIn\n");
     printf("2. Create Account\n\n");
     printf("Enter Your Choice: ");
     scanf("%d",&option);
     switch(option){
-        case 1: login();
+        case 1: login(); //login function is called here
                 break;
 
-        case 2: createAccount();
+        case 2: createAccount(); //create account function is called here
                 break;
 
         default: printf("Wrong Choice!!!\n");
@@ -41,13 +40,14 @@ int main(){
 
 
 void getCurrentTime(){
-
+    
     time_t rawtime;
     struct tm * timeinfo;
 
     time(&rawtime);
     timeinfo = localtime(&rawtime);
     printf("Current Time and Date: %s\n", asctime(timeinfo));
+
 }
 
 void login(){
@@ -59,7 +59,7 @@ void login(){
     scanf("%s",&user_name);
     printf("enter your password: ");
     scanf("%s",&password);
-    if(strcmp(user_name, "admin")== 0 && strcmp(password, "admin123")==0){
+    if(strcmp(user_name, "admin")== 0 && strcmp(password, "admin123")==0){ //checking the user name and password
 
         printf("\n\t\t-----------------------------------------------\n");
         printf("\t\t\t   WELCOME TO YOUR DASHBOARD USER\n");
